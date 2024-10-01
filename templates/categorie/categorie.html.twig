@@ -1,0 +1,26 @@
+{# templates/categorie/categorie.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une catégorie{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Ajouter une nouvelle catégorie</h1>
+
+        {# Affichage des messages flash #}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {# Formulaire pour ajouter une catégorie #}
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.libelle) }}
+                {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
